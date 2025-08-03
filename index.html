@@ -14,6 +14,9 @@
 	</head>
 	<body class="is-preload">
 
+		<!-- Theme Toggle Button -->
+		<button id="theme-toggle" title="Toggle dark/light mode">🌙</button>
+
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
 
@@ -126,6 +129,57 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/main.js"></script>
+
+		<!-- Theme Toggle Script -->
+		<script>
+			(function() {
+				// Get toggle button
+				const themeToggle = document.getElementById('theme-toggle');
+				const body = document.body;
+				
+				// Check for saved theme preference or default to light mode
+				const savedTheme = localStorage.getItem('theme');
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				
+				// Apply saved theme or system preference
+				if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+					body.classList.add('dark-mode');
+					themeToggle.textContent = '☀️';
+				} else {
+					themeToggle.textContent = '🌙';
+				}
+				
+				// Toggle theme function
+				function toggleTheme() {
+					body.classList.toggle('dark-mode');
+					
+					// Update button icon
+					if (body.classList.contains('dark-mode')) {
+						themeToggle.textContent = '☀️';
+						localStorage.setItem('theme', 'dark');
+					} else {
+						themeToggle.textContent = '🌙';
+						localStorage.setItem('theme', 'light');
+					}
+				}
+				
+				// Add click event listener
+				themeToggle.addEventListener('click', toggleTheme);
+				
+				// Optional: Listen for system theme changes
+				window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+					if (!localStorage.getItem('theme')) {
+						if (e.matches) {
+							body.classList.add('dark-mode');
+							themeToggle.textContent = '☀️';
+						} else {
+							body.classList.remove('dark-mode');
+							themeToggle.textContent = '🌙';
+						}
+					}
+				});
+			})();
+		</script>
 
 	</body>
 </html>
