@@ -1,0 +1,253 @@
+{
+  "url": "https://lhsnam.github.io",
+  "name": "Le Hong Son Nam",
+  "links": {
+    "github": "https://github.com/lhsnam",
+    "linkedin": "https://www.linkedin.com/in/lhsnam/",
+    "scholar": "https://scholar.google.com/citations?user=j6MKfFMAAAAJ&hl=en",
+    "emailUser": "lhsnam1998",
+    "emailDomain": "gmail.com"
+  },
+  "ui": {
+    "en": {
+      "nav": { "work": "Work", "experience": "Experience", "research": "Research", "notes": "Notes", "contact": "Contact" },
+      "kicker": "Senior Bioinformatician · Ho Chi Minh City",
+      "h1": "Turning sequencing noise into <em>clinical signal.</em>",
+      "sub": "I build genomics and microbiome pipelines and machine-learning models, from precision oncology and prenatal screening to the human gut.",
+      "ctaWork": "View selected work",
+      "ctaCv": "Download CV",
+      "ctaScholar": "Google Scholar ↗",
+      "tags": [["Genomics", "r"], ["NIPT / Oncology", "r"], ["Microbiome", "t"], ["Machine Learning", "t"], ["Nextflow · Python · R", "r"]],
+      "trackLeft": "noise <b>filtered</b> · true variant retained",
+      "trackRight": "precision 99%",
+      "trackTitle": "chr · variant call view",
+      "legendNoise": "■ sequencing noise",
+      "legendVariant": "▲ true variant",
+      "sWork": "Selected work",
+      "sExp": "Experience",
+      "sRes": "Research & talks",
+      "sNotes": "Notes",
+      "sTool": "Toolkit & mentoring",
+      "pubs": "Publications",
+      "talks": "Conference talks",
+      "citedBy": "Cited by",
+      "citedAll": "All",
+      "citedSince": "Since 2021",
+      "citations": "Citations",
+      "updated": "Updated",
+      "viewProfile": "View profile ↗",
+      "metricsLabel": "Google Scholar metrics",
+      "allNotes": "All notes →",
+      "notesIntro": "Working notes on genomics, microbiome analysis and bioinformatics pipelines.",
+      "noNotes": "Nothing here yet.",
+      "draft": "Draft",
+      "minRead": "min read",
+      "backNotes": "← All notes",
+      "education": "Education",
+      "languages": "Languages",
+      "contactH": "Working on genomics or microbiome data? <em>Let's talk.</em>",
+      "email": "Email",
+      "rights": "© 2026 Le Hong Son Nam",
+      "location": "Ho Chi Minh City, Vietnam",
+      "toggleTheme": "Toggle light / dark theme",
+      "skip": "Skip to content",
+      "homeDesc": "Le Hong Son Nam is a senior bioinformatician working on genomics, microbiome analysis and machine learning in Ho Chi Minh City, Vietnam.",
+      "notesDesc": "Notes on genomics, microbiome analysis and bioinformatics pipelines by Le Hong Son Nam.",
+      "toolGroups": ["Languages & pipelines", "Cloud & data", "Mentoring"],
+      "langLine": "English: fluent · French: basic conversation · Vietnamese: native"
+    },
+    "vi": {
+      "nav": { "work": "Dự án", "experience": "Kinh nghiệm", "research": "Nghiên cứu", "notes": "Ghi chú", "contact": "Liên hệ" },
+      "kicker": "Chuyên viên Tin sinh học cao cấp · TP. Hồ Chí Minh",
+      "h1": "Biến nhiễu giải trình tự thành <em>tín hiệu lâm sàng.</em>",
+      "sub": "Mình xây dựng pipeline genomics, microbiome và các mô hình machine learning, từ ung thư chính xác và sàng lọc trước sinh đến hệ vi sinh đường ruột.",
+      "ctaWork": "Xem dự án nổi bật",
+      "ctaCv": "Tải CV",
+      "ctaScholar": "Google Scholar ↗",
+      "tags": [["Genomics", "r"], ["NIPT / Ung thư", "r"], ["Microbiome", "t"], ["Machine Learning", "t"], ["Nextflow · Python · R", "r"]],
+      "trackLeft": "nhiễu <b>đã lọc</b> · giữ lại biến thể thật",
+      "trackRight": "độ chính xác 99%",
+      "trackTitle": "chr · gọi biến thể",
+      "legendNoise": "■ nhiễu giải trình tự",
+      "legendVariant": "▲ biến thể thật",
+      "sWork": "Dự án nổi bật",
+      "sExp": "Kinh nghiệm",
+      "sRes": "Nghiên cứu & báo cáo",
+      "sNotes": "Ghi chú",
+      "sTool": "Công cụ & hướng dẫn",
+      "pubs": "Công bố khoa học",
+      "talks": "Báo cáo hội nghị",
+      "citedBy": "Được trích dẫn",
+      "citedAll": "Tất cả",
+      "citedSince": "Từ 2021",
+      "citations": "Trích dẫn",
+      "updated": "Cập nhật",
+      "viewProfile": "Xem hồ sơ ↗",
+      "metricsLabel": "Chỉ số Google Scholar",
+      "allNotes": "Tất cả ghi chú →",
+      "notesIntro": "Ghi chú chuyên môn về genomics, phân tích microbiome và pipeline tin sinh học.",
+      "noNotes": "Chưa có bài nào.",
+      "draft": "Bản nháp",
+      "minRead": "phút đọc",
+      "backNotes": "← Tất cả ghi chú",
+      "education": "Học vấn",
+      "languages": "Ngôn ngữ",
+      "contactH": "Bạn đang làm việc với dữ liệu genomics hay microbiome? <em>Trao đổi nhé.</em>",
+      "email": "Email",
+      "rights": "© 2026 Lê Hồng Sơn Nam",
+      "location": "TP. Hồ Chí Minh, Việt Nam",
+      "toggleTheme": "Chuyển giao diện sáng / tối",
+      "skip": "Chuyển đến nội dung",
+      "homeDesc": "Lê Hồng Sơn Nam là chuyên viên tin sinh học cao cấp, làm việc về genomics, phân tích microbiome và machine learning tại TP. Hồ Chí Minh.",
+      "notesDesc": "Ghi chú về genomics, phân tích microbiome và pipeline tin sinh học của Lê Hồng Sơn Nam.",
+      "toolGroups": ["Ngôn ngữ & pipeline", "Đám mây & dữ liệu", "Hướng dẫn"],
+      "langLine": "Tiếng Anh: thành thạo · Tiếng Pháp: giao tiếp cơ bản · Tiếng Việt: bản ngữ"
+    }
+  },
+  "work": [
+    {
+      "meta": { "en": "Gene Solutions · 2026", "vi": "Gene Solutions · 2026" },
+      "title": { "en": "KTrack: precision oncology pipeline", "vi": "KTrack: pipeline ung thư chính xác" },
+      "text": { "en": "Optimised the variant-calling workflow behind a precision-oncology product used in cancer diagnosis.", "vi": "Tối ưu workflow gọi biến thể của một sản phẩm ung thư chính xác dùng trong chẩn đoán ung thư." },
+      "big": [["−50%", { "en": "processing time", "vi": "thời gian xử lý" }]],
+      "stack": "variant calling · workflow optimisation"
+    },
+    {
+      "meta": { "en": "Gene Solutions · 2026", "vi": "Gene Solutions · 2026" },
+      "title": { "en": "ML denoising for monogenic NIPT", "vi": "ML khử nhiễu cho NIPT đơn gen" },
+      "text": { "en": "Machine learning separates true variants from non-UMI sequencing artefacts. Presented at AI x BIO, Cambridge.", "vi": "Machine learning phân biệt biến thể thật với nhiễu giải trình tự không UMI. Đã trình bày tại AI x BIO, Cambridge." },
+      "big": [["99%", { "en": "precision", "vi": "độ chính xác" }], ["−50%", { "en": "turn-around", "vi": "thời gian trả KQ" }], ["−20%", { "en": "cost", "vi": "chi phí" }]],
+      "stack": "NGS · scikit-learn · single-gene assays"
+    },
+    {
+      "meta": { "en": "Zymo Research · 2023–2025", "vi": "Zymo Research · 2023–2025" },
+      "title": { "en": "Gut Health & Orion Microbiome Portal", "vi": "Gut Health & Orion Microbiome Portal" },
+      "text": { "en": "Taxa-profiling pipelines (aladdin-shotgun, io-gut-health) and predictive models for health status from microbiome data.", "vi": "Pipeline định danh taxa (aladdin-shotgun, io-gut-health) và mô hình dự đoán tình trạng sức khỏe từ dữ liệu microbiome." },
+      "big": [["2", { "en": "pipelines", "vi": "pipeline" }], ["1", { "en": "data portal", "vi": "cổng dữ liệu" }]],
+      "stack": "Python · Nextflow · Docker · AWS"
+    }
+  ],
+  "experience": [
+    {
+      "now": true,
+      "when": { "en": "Jan 2026 – now", "vi": "01/2026 – nay" },
+      "role": { "en": "Senior Bioinformatician", "vi": "Chuyên viên Tin sinh học cao cấp" },
+      "org": { "en": "Gene Solutions · Human Genomics Data Team (remote)", "vi": "Gene Solutions · Nhóm Dữ liệu Genomics người (từ xa)" },
+      "items": [
+        { "en": "Cut KTrack variant-calling time by 50% for cancer diagnosis.", "vi": "Giảm 50% thời gian gọi biến thể của KTrack trong chẩn đoán ung thư." },
+        { "en": "Raised NIPT single-gene precision to 99% with ML, halving turn-around time and cutting operational cost by 20%.", "vi": "Nâng độ chính xác NIPT đơn gen lên 99% bằng ML, giảm một nửa thời gian trả kết quả và giảm 20% chi phí vận hành." }
+      ]
+    },
+    {
+      "when": { "en": "Nov 2025 – now", "vi": "11/2025 – nay" },
+      "role": { "en": "Ad-hoc peer reviewer", "vi": "Phản biện khoa học (ad-hoc)" },
+      "org": { "en": "Gut Pathogens · BMC Infectious Diseases", "vi": "Gut Pathogens · BMC Infectious Diseases" },
+      "items": []
+    },
+    {
+      "when": { "en": "Apr 2023 – Sep 2025", "vi": "04/2023 – 09/2025" },
+      "role": { "en": "Data Scientist, Human Multi-Omics", "vi": "Data Scientist, Multi-Omics người" },
+      "org": { "en": "Zymo Research & Pacific Informatics (remote)", "vi": "Zymo Research & Pacific Informatics (từ xa)" },
+      "items": [
+        { "en": "Built and maintained taxa-profiling pipelines; improved cloud deployment with Docker and AWS.", "vi": "Xây dựng và duy trì pipeline định danh taxa; cải thiện triển khai đám mây với Docker và AWS." },
+        { "en": "Established the \"Gut Health\" project to find microbial biomarkers in the human gut microbiome.", "vi": "Thiết lập dự án \"Gut Health\" nhằm tìm biomarker vi sinh trong hệ vi sinh đường ruột người." }
+      ]
+    },
+    {
+      "when": { "en": "Apr 2022 – Mar 2023", "vi": "04/2022 – 03/2023" },
+      "role": { "en": "Research Student, Molecular Epidemiology", "vi": "Sinh viên nghiên cứu, Dịch tễ học phân tử" },
+      "org": { "en": "Oxford University Clinical Research Unit", "vi": "Oxford University Clinical Research Unit" },
+      "items": [
+        { "en": "Analysed 215 fecal microbiome samples from children with diarrhoea, comparing disease and post-recovery states.", "vi": "Phân tích 215 mẫu phân microbiome của trẻ tiêu chảy, so sánh giai đoạn bệnh và sau hồi phục." },
+        { "en": "Extracted DNA from up to 450 fecal samples for a longitudinal study; 16S rRNA and shotgun metagenomics in R.", "vi": "Tách DNA tối đa 450 mẫu phân cho nghiên cứu theo dõi dọc; phân tích 16S rRNA và shotgun metagenomics bằng R." }
+      ]
+    },
+    {
+      "when": { "en": "2022", "vi": "2022" },
+      "role": { "en": "Fellow, One Health summer class", "vi": "Học viên, lớp hè One Health" },
+      "org": { "en": "One Health Organization · Hanoi & Bangkok", "vi": "One Health Organization · Hà Nội & Bangkok" },
+      "items": [
+        { "en": "\"One Health Approach to fighting antimicrobial resistance\".", "vi": "\"One Health Approach to fighting antimicrobial resistance\"." }
+      ]
+    },
+    {
+      "when": { "en": "Summer 2019", "vi": "Hè 2019" },
+      "role": { "en": "Intern, Enteric Group", "vi": "Thực tập sinh, Nhóm Enteric" },
+      "org": { "en": "Pasteur Institute in Ho Chi Minh City", "vi": "Viện Pasteur TP. Hồ Chí Minh" },
+      "items": []
+    }
+  ],
+  "education": [
+    {
+      "when": { "en": "Apr 2024", "vi": "04/2024" },
+      "title": { "en": "MSc, Biotechnology", "vi": "Thạc sĩ Công nghệ sinh học" },
+      "org": { "en": "International University, Vietnam National University HCMC", "vi": "Trường Đại học Quốc tế, ĐHQG TP.HCM" },
+      "text": { "en": "Thesis: \"Dynamic of the gut microbiome under infectious diarrhoea in Vietnamese children.\"", "vi": "Luận văn: \"Dynamic of the gut microbiome under infectious diarrhoea in Vietnamese children.\"" }
+    },
+    {
+      "when": { "en": "Sep 2020", "vi": "09/2020" },
+      "title": { "en": "BSc, Biotechnology", "vi": "Cử nhân Công nghệ sinh học" },
+      "org": { "en": "International University, Vietnam National University HCMC", "vi": "Trường Đại học Quốc tế, ĐHQG TP.HCM" },
+      "text": { "en": "", "vi": "" }
+    }
+  ],
+  "publications": [
+    {
+      "year": "2026",
+      "status": { "en": "in preparation", "vi": "đang chuẩn bị" },
+      "title": "Machine Learning-Driven Denoising for High-Sensitivity Monogenic NIPT: Distinguishing True Variants from Sequencing Errors in Non-UMI Workflows",
+      "venue": { "en": "Le S-N.H. et al.", "vi": "Le S-N.H. và cs." },
+      "match": "machine learning driven denoising"
+    },
+    {
+      "year": "2024",
+      "title": "The impact of antibiotics on the gut microbiota of children recovering from watery diarrhoea",
+      "venue": { "en": "npj Antimicrobial Resistance 2, 12 · first author", "vi": "npj Antimicrobial Resistance 2, 12 · tác giả đầu" },
+      "match": "impact of antibiotics on the gut microbiota"
+    },
+    {
+      "year": "2023",
+      "title": "Multidrug resistance plasmids underlie clonal expansions and international spread of Salmonella enterica serotype 1,4,[5],12:i:- ST34 in Southeast Asia",
+      "venue": { "en": "Communications Biology 6, 1007", "vi": "Communications Biology 6, 1007" },
+      "match": "multidrug resistance plasmids underlie clonal expansions"
+    },
+    {
+      "year": "2022",
+      "title": "Dynamic of the human gut microbiome under infectious diarrhea",
+      "venue": { "en": "Current Opinion in Microbiology 66, 79–85", "vi": "Current Opinion in Microbiology 66, 79–85" },
+      "match": "dynamic of the human gut microbiome under infectious diarrhea"
+    },
+    {
+      "year": "2022",
+      "title": "Computational Prediction For High Immunogenic Regions Of The African Swine Fever Virus Proteome",
+      "venue": { "en": "Bachelor thesis", "vi": "Khóa luận cử nhân" },
+      "match": "computational prediction for high immunogenic regions"
+    }
+  ],
+  "talks": [
+    {
+      "when": { "en": "Jun 2026", "vi": "06/2026" },
+      "title": "Machine Learning-Driven Denoising for High-Sensitivity Monogenic NIPT",
+      "where": { "en": "AI x BIO · Wellcome Genome Campus, Hinxton, UK", "vi": "AI x BIO · Wellcome Genome Campus, Hinxton, Anh" }
+    },
+    {
+      "when": { "en": "Feb 2024", "vi": "02/2024" },
+      "title": "The impact of antibiotics on the gut microbiota of children recovering from watery diarrhoea",
+      "where": { "en": "Microbiome Interactions in Health and Disease · Wellcome Genome Campus, UK", "vi": "Microbiome Interactions in Health and Disease · Wellcome Genome Campus, Anh" }
+    },
+    {
+      "when": { "en": "Dec 2019", "vi": "12/2019" },
+      "title": "Computational prediction for high immunogenic region of African Swine Fever Virus proteome",
+      "where": { "en": "Vietnam Third Biology Conference · Binh Dinh", "vi": "Hội nghị Sinh học Việt Nam lần thứ ba · Bình Định" }
+    }
+  ],
+  "toolkit": [
+    ["Python", "R / ggplot2", "Nextflow", "Linux", "scikit-learn"],
+    ["Docker", "AWS", "GitHub", "16S · shotgun metagenomics", "NGS variant calling"],
+    [
+      { "en": "2 bioinformatics interns supervised", "vi": "Hướng dẫn 2 thực tập sinh tin sinh học" },
+      { "en": "PhD research consulting", "vi": "Tư vấn nghiên cứu cho NCS" },
+      { "en": "Dataviz workshops (~20 people)", "vi": "Workshop trực quan dữ liệu (~20 người)" }
+    ]
+  ]
+}
