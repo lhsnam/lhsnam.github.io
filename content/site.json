@@ -194,6 +194,13 @@
   "publications": [
     {
       "year": "2026",
+      "title": "A streamlined hybrid-capture and genome-wide multi-omic platform for highly sensitive ctDNA minimal residual disease monitoring",
+      "venue": { "en": "Journal of Liquid Biopsy 14, 100496", "vi": "Journal of Liquid Biopsy 14, 100496" },
+      "url": "https://www.sciencedirect.com/science/article/pii/S2950195426000421",
+      "match": "streamlined hybrid capture and genome wide multi omic platform"
+    },
+    {
+      "year": "2026",
       "status": { "en": "in preparation", "vi": "đang chuẩn bị" },
       "title": "Machine Learning-Driven Denoising for High-Sensitivity Monogenic NIPT: Distinguishing True Variants from Sequencing Errors in Non-UMI Workflows",
       "venue": { "en": "Le S-N.H. et al.", "vi": "Le S-N.H. và cs." },

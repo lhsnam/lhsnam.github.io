@@ -173,7 +173,7 @@ function home(lang, notes) {
   const pubs = site.publications.map((p) => {
     const n = paperCites(p);
     const badge = n != null ? `<a class="c" href="${site.links.scholar}" rel="noopener">${esc(ui.citedBy)} ${n}</a>` : '';
-    return `<div class="pub"><div class="y">${p.year}${p.status ? ` · ${esc(tr(p.status, lang))}` : ''}</div><div class="t">${esc(p.title)}</div><div class="j"><span>${esc(tr(p.venue, lang))}</span>${badge}</div></div>`;
+    return `<div class="pub"><div class="y">${p.year}${p.status ? ` · ${esc(tr(p.status, lang))}` : ''}</div><div class="t">${p.url ? `<a href="${esc(p.url)}" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</div><div class="j"><span>${esc(tr(p.venue, lang))}</span>${badge}</div></div>`;
   }).join('');
   const talks = site.talks.map((t) => `<div class="talk"><div class="d">${esc(tr(t.when, lang))}</div><div><div class="t">${esc(t.title)}</div><div class="w">${esc(tr(t.where, lang))}</div></div></div>`).join('');
   const recent = (notes[lang] || []).slice(0, 3).map((n) => noteCard(n, lang, ui)).join('');
