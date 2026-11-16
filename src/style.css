@@ -141,11 +141,18 @@ footer .cp{font-size:12px;color:#8b8680;border-top:1px solid #34312e;padding-top
 @media print{.theme,.lang,.cta,nav{display:none}}
 
 /* ---- scroll experience (all effects are progressive: no JS / reduced motion = static page) ---- */
-.track .nz,.track .nzl{opacity:calc(.9 - .85*var(--p,0))}
-.track .vb{opacity:calc(.18 + .22*var(--p,0))}
-.track .rd.r0,.track .nz.r0{transform:translateX(calc(var(--p,0)*-8px))}
-.track .rd.r1,.track .nz.r1{transform:translateX(calc(var(--p,0)*8px))}
-.track .vr{transform-box:fill-box;transform-origin:center;transform:scale(calc(1 + .4*var(--p,0)))}
+.career text{font-family:var(--mono)}
+.track .ft{flex-wrap:wrap}
+.track .lg{display:flex;gap:4px 14px;flex-wrap:wrap}
+.track .lg span,.track .ft>span:last-child{white-space:nowrap}
+.track .lg i{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:6px}
+.track .lg i.m{background:#5CC4BD}.track .lg i.g{background:#ff6b7e}
+@keyframes ci-in{from{opacity:0}to{opacity:1}}
+@keyframes cb-in{from{transform:scaleX(0)}to{transform:none}}
+@keyframes cn-in{from{transform:translateX(calc(var(--span)*-1px))}to{transform:none}}
+.fx .career .ci{animation:ci-in .45s ease both;animation-delay:calc(.3s + var(--t)*1.5s)}
+.fx .career .cb{transform-box:fill-box;transform-origin:left;animation:cb-in .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(.3s + var(--t)*1.5s)}
+.fx .career .cn{animation:cn-in 1.5s linear .3s both}
 .fx .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;transition-delay:calc(var(--i,0)*80ms)}
 .fx .rv.in{opacity:1;transform:none}
 .card .fig{width:100%;height:auto;display:block;margin-top:18px}

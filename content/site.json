@@ -12,17 +12,18 @@
     "en": {
       "nav": { "work": "Work", "experience": "Experience", "research": "Research", "notes": "Notes", "contact": "Contact" },
       "kicker": "Senior Bioinformatician · Ho Chi Minh City",
-      "h1": "Turning sequencing noise into <em>clinical signal.</em>",
-      "sub": "I build genomics and microbiome pipelines and machine-learning models, from precision oncology and prenatal screening to the human gut.",
+      "h1": "From gut microbes to the <em>human genome.</em>",
+      "sub": "I'm a bioinformatician who builds pipelines and machine-learning models that turn sequencing data into answers, across microbiome research, prenatal screening and precision oncology.",
       "ctaWork": "View selected work",
       "ctaCv": "Download CV",
       "ctaScholar": "Google Scholar ↗",
       "tags": [["Genomics", "r"], ["NIPT / Oncology", "r"], ["Microbiome", "t"], ["Machine Learning", "t"], ["Nextflow · Python · R", "r"]],
-      "trackLeft": "noise <b>filtered</b> · true variant retained",
-      "trackRight": "precision 99%",
-      "trackTitle": "chr · variant call view",
-      "legendNoise": "■ sequencing noise",
-      "legendVariant": "▲ true variant",
+      "trackTitle": "career tracks · 2019 → now",
+      "trackRows": ["Roles", "Degrees", "Papers", "Talks"],
+      "trackDomains": ["microbes & infection", "human genomics"],
+      "trackCount": ["papers", "talks"],
+      "trackNow": "now",
+      "trackAria": "Career timeline from 2019 to now: roles, degrees, papers and talks, moving from microbiome and infection research to human genomics",
       "figBefore": "before", "figAfter": "after", "figHalf": "half the time", "figNoise": "noise", "figVariant": "true variant", "figThreshold": "threshold", "figSample": "sample", "figTaxa": "taxa composition per sample", "dnaTop": "Back to top",
       "sWork": "Selected work",
       "sExp": "Experience",
@@ -60,17 +61,18 @@
     "vi": {
       "nav": { "work": "Dự án", "experience": "Kinh nghiệm", "research": "Nghiên cứu", "notes": "Ghi chú", "contact": "Liên hệ" },
       "kicker": "Chuyên viên Tin sinh học cao cấp · TP. Hồ Chí Minh",
-      "h1": "Biến nhiễu giải trình tự thành <em>tín hiệu lâm sàng.</em>",
-      "sub": "Mình xây dựng pipeline genomics, microbiome và các mô hình machine learning, từ ung thư chính xác và sàng lọc trước sinh đến hệ vi sinh đường ruột.",
+      "h1": "Từ hệ vi sinh đường ruột đến <em>hệ gen người.</em>",
+      "sub": "Mình là nhà tin sinh học, xây dựng pipeline và mô hình machine learning để biến dữ liệu giải trình tự thành câu trả lời, từ nghiên cứu hệ vi sinh, sàng lọc trước sinh đến ung thư chính xác.",
       "ctaWork": "Xem dự án nổi bật",
       "ctaCv": "Tải CV",
       "ctaScholar": "Google Scholar ↗",
       "tags": [["Genomics", "r"], ["NIPT / Ung thư", "r"], ["Microbiome", "t"], ["Machine Learning", "t"], ["Nextflow · Python · R", "r"]],
-      "trackLeft": "nhiễu <b>đã lọc</b> · giữ lại biến thể thật",
-      "trackRight": "độ chính xác 99%",
-      "trackTitle": "chr · gọi biến thể",
-      "legendNoise": "■ nhiễu giải trình tự",
-      "legendVariant": "▲ biến thể thật",
+      "trackTitle": "hành trình · 2019 → nay",
+      "trackRows": ["Công việc", "Bằng cấp", "Bài báo", "Báo cáo"],
+      "trackDomains": ["vi sinh & bệnh nhiễm", "hệ gen người"],
+      "trackCount": ["bài báo", "báo cáo"],
+      "trackNow": "nay",
+      "trackAria": "Hành trình nghề nghiệp từ 2019 đến nay: công việc, bằng cấp, bài báo và báo cáo, đi từ nghiên cứu hệ vi sinh và bệnh nhiễm sang hệ gen người",
       "figBefore": "trước", "figAfter": "sau", "figHalf": "một nửa thời gian", "figNoise": "nhiễu", "figVariant": "biến thể thật", "figThreshold": "ngưỡng", "figSample": "mẫu", "figTaxa": "thành phần vi sinh theo mẫu", "dnaTop": "Về đầu trang",
       "sWork": "Dự án nổi bật",
       "sExp": "Kinh nghiệm",
@@ -105,6 +107,30 @@
       "toolGroups": ["Ngôn ngữ & pipeline", "Đám mây & dữ liệu", "Hướng dẫn"],
       "langLine": "Tiếng Anh: thành thạo · Tiếng Pháp: giao tiếp cơ bản · Tiếng Việt: bản ngữ"
     }
+  },
+  "career": {
+    "start": 2019,
+    "roles": [
+      { "from": 2019.5, "to": 2019.75, "label": "Pasteur", "title": "Intern, Pasteur Institute in Ho Chi Minh City · Summer 2019", "d": "m" },
+      { "from": 2022.25, "to": 2023.25, "label": "OUCRU", "title": "Research Student, Oxford University Clinical Research Unit · Apr 2022 – Mar 2023", "d": "m" },
+      { "from": 2023.25, "to": 2025.75, "label": "Zymo Research", "title": "Data Scientist, Zymo Research & Pacific Informatics · Apr 2023 – Sep 2025", "d": "m" },
+      { "from": 2026.0, "to": null, "label": "Gene Solutions", "title": "Senior Bioinformatician, Gene Solutions · Jan 2026 – now", "d": "g" }
+    ],
+    "degrees": [
+      { "at": 2020.71, "label": "BSc", "title": "BSc Biotechnology · Sep 2020" },
+      { "at": 2024.29, "label": "MSc", "title": "MSc Biotechnology · Apr 2024" }
+    ],
+    "papers": [
+      { "at": 2022.29, "label": "Curr Opin Microbiol", "title": "Current Opinion in Microbiology · 2022", "d": "m" },
+      { "at": 2023.75, "label": "Commun Biol", "title": "Communications Biology · 2023", "d": "m" },
+      { "at": 2024.31, "label": "npj AMR", "title": "npj Antimicrobial Resistance · 2024", "d": "m" },
+      { "at": 2026.7, "label": "J Liq Biopsy", "title": "Journal of Liquid Biopsy · 2026", "d": "g" }
+    ],
+    "talks": [
+      { "at": 2019.96, "label": "Binh Dinh", "title": "Vietnam Third Biology Conference · Dec 2019", "d": "m" },
+      { "at": 2024.12, "label": "Cambridge", "title": "Microbiome Interactions in Health and Disease, Wellcome Genome Campus · Feb 2024", "d": "m" },
+      { "at": 2026.46, "label": "Cambridge", "title": "AI x BIO, Wellcome Genome Campus · Jun 2026", "d": "g" }
+    ]
   },
   "work": [
     {
@@ -215,18 +241,21 @@
       "year": "2024",
       "title": "The impact of antibiotics on the gut microbiota of children recovering from watery diarrhoea",
       "venue": { "en": "npj Antimicrobial Resistance 2, 12 · first author", "vi": "npj Antimicrobial Resistance 2, 12 · tác giả đầu" },
+      "url": "https://doi.org/10.1038/s44259-024-00030-x",
       "match": "impact of antibiotics on the gut microbiota"
     },
     {
       "year": "2023",
       "title": "Multidrug resistance plasmids underlie clonal expansions and international spread of Salmonella enterica serotype 1,4,[5],12:i:- ST34 in Southeast Asia",
       "venue": { "en": "Communications Biology 6, 1007", "vi": "Communications Biology 6, 1007" },
+      "url": "https://doi.org/10.1038/s42003-023-05365-1",
       "match": "multidrug resistance plasmids underlie clonal expansions"
     },
     {
       "year": "2022",
       "title": "Dynamic of the human gut microbiome under infectious diarrhea",
       "venue": { "en": "Current Opinion in Microbiology 66, 79–85", "vi": "Current Opinion in Microbiology 66, 79–85" },
+      "url": "https://doi.org/10.1016/j.mib.2022.01.006",
       "match": "dynamic of the human gut microbiome under infectious diarrhea"
     },
     {
