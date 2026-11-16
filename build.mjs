@@ -86,20 +86,46 @@ function readsSvg(ui) {
   let s = 7; const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
   const W = 516, vx = W * 0.54; let o = '';
   for (let i = 0; i <= 8; i++) { const x = i * W / 8; o += `<line x1="${x}" y1="14" x2="${x}" y2="20" stroke="#3a3d46"/><text x="${x + 3}" y="12" fill="#6d727e" font-size="9" font-family="monospace">${1200 + i * 40}</text>`; }
-  o += `<rect x="${vx - 9}" y="24" width="18" height="214" fill="#8F1D2C" opacity=".18"/>`;
+  o += `<rect class="vb" x="${vx - 9}" y="24" width="18" height="214" fill="#8F1D2C"/>`;
   const cols = ['#5b6270', '#4d5a6b', '#566170'];
   for (let row = 0; row < 18; row++) {
     let x = -r() * 80; const y = 28 + row * 11.5;
     while (x < W) {
       const len = 70 + r() * 90, x2 = Math.min(W, x + len), x0 = Math.max(0, x);
-      o += `<rect x="${x0.toFixed(1)}" y="${y}" width="${Math.max(1, x2 - x0 - 3).toFixed(1)}" height="7" rx="3.5" fill="${cols[row % 3]}"/>`;
-      if (r() < 0.55) { const nx = x + 10 + r() * (len - 20); if (Math.abs(nx - vx) > 14 && nx < W - 4) o += `<rect x="${nx.toFixed(1)}" y="${y}" width="4" height="7" fill="#d9a441" opacity=".85"/>`; }
-      if (x < vx && x2 > vx && row % 3 !== 2) o += `<rect x="${(vx - 2).toFixed(1)}" y="${y}" width="5" height="7" fill="#ff5a6e"/>`;
+      o += `<rect class="rd r${row % 2}" x="${x0.toFixed(1)}" y="${y}" width="${Math.max(1, x2 - x0 - 3).toFixed(1)}" height="7" rx="3.5" fill="${cols[row % 3]}"/>`;
+      if (r() < 0.55) { const nx = x + 10 + r() * (len - 20); if (Math.abs(nx - vx) > 14 && nx < W - 4) o += `<rect class="nz r${row % 2}" x="${nx.toFixed(1)}" y="${y}" width="4" height="7" fill="#d9a441"/>`; }
+      if (x < vx && x2 > vx && row % 3 !== 2) o += `<rect class="vr" x="${(vx - 2).toFixed(1)}" y="${y}" width="5" height="7" fill="#ff5a6e"/>`;
       x = x2 + 4;
     }
   }
-  o += `<text x="${vx + 14}" y="246" fill="#ff8a98" font-size="10" font-family="monospace">${esc(ui.legendVariant)}</text><text x="12" y="246" fill="#d9a441" font-size="10" font-family="monospace">${esc(ui.legendNoise)}</text>`;
+  o += `<text x="${vx + 14}" y="246" fill="#ff8a98" font-size="10" font-family="monospace">${esc(ui.legendVariant)}</text><text class="nzl" x="12" y="246" fill="#d9a441" font-size="10" font-family="monospace">${esc(ui.legendNoise)}</text>`;
   return `<svg viewBox="0 0 ${W} 252" role="img" aria-label="Illustration of sequencing reads with one true variant highlighted">${o}</svg>`;
+}
+
+
+// Abstract, hand-drawn style figures for the work cards. Illustrative only, no real data.
+function figSvg(kind, ui) {
+  const T = (x, y, t, st = '') => `<text x="${x}" y="${y}" font-size="9" style="fill:var(--mut);${st}">${esc(t)}</text>`;
+  let s = 11; const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
+  let o = '';
+  if (kind === 'pipeline') {
+    const names = ['align', 'call', 'filter', 'report'];
+    names.forEach((n, i) => { const x = 6 + i * 74; const hot = i === 3; o += `<g class="px" style="--i:${i}"><rect x="${x}" y="8" width="52" height="26" rx="6" fill="none" style="stroke:var(${hot ? '--red' : '--ink'})" stroke-width="1.3"/><text x="${x + 26}" y="25" text-anchor="middle" font-size="9.5" style="fill:var(${hot ? '--red' : '--ink'})">${n}</text></g>`; if (i < 3) o += `<path class="pl" pathLength="1" d="M${x + 52} 21H${x + 74}" fill="none" style="stroke:var(--mut);--i:${i}" stroke-width="1.2"/>`; });
+    o += T(6, 70, ui.figBefore) + `<rect x="6" y="76" width="288" height="8" rx="4" style="fill:var(--line)"/>`;
+    o += T(6, 108, ui.figAfter) + `<rect class="pb" x="6" y="114" width="144" height="8" rx="4" style="fill:var(--red)"/>` + `<text class="pt" x="158" y="122" font-size="9.5" style="fill:var(--red)">${esc(ui.figHalf)}</text>`;
+  } else if (kind === 'scatter') {
+    o += `<path d="M10 140H292M10 140V6" fill="none" style="stroke:var(--line)"/>`;
+    o += `<path class="pf" d="M56 140C118 136 170 100 250 18" fill="none" style="stroke:var(--teal)" stroke-width="1.2" stroke-dasharray="4 4"/>`;
+    for (let i = 0; i < 40; i++) { const x = 22 + r() * 150, y = 82 + r() * 52, dx = (r() - .5) * 90, dy = (r() - 1) * 60; o += `<circle class="dt" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.3" style="fill:#d9a441;--dx:${dx.toFixed(0)}px;--dy:${dy.toFixed(0)}px"/>`; }
+    for (let i = 0; i < 8; i++) { const x = 176 + r() * 100, y = 16 + r() * 64, dx = -(40 + r() * 80), dy = 50 + r() * 50; o += `<circle class="dt v" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.3" style="--dx:${dx.toFixed(0)}px;--dy:${dy.toFixed(0)}px"/>`; }
+    o += T(14, 152, ui.figNoise) + T(216, 98, ui.figVariant, 'fill:var(--red)') + T(196, 12, ui.figThreshold, 'fill:var(--teal)');
+  } else {
+    const cols = ['--teal', '--teal', '--teal', '--red'], ops = [1, .6, .35, .9];
+    for (let i = 0; i < 9; i++) { let y = 134; const x = 10 + i * 31; [34 + r() * 26, 24 + r() * 20, 14 + r() * 14, 7 + r() * 9].forEach((h, k) => { y -= h; o += `<rect class="sg" x="${x}" y="${y.toFixed(1)}" width="21" height="${h.toFixed(1)}" style="fill:var(${cols[k]});opacity:${i === 5 ? 1 : ops[k] * .75};--i:${i}"/>`; }); }
+    o += `<g class="mk"><path d="M178 34V12" style="stroke:var(--red)" stroke-width="1.2"/><circle cx="178" cy="10" r="3" style="fill:var(--red)"/>${T(170, 13, ui.figSample, 'fill:var(--red);text-anchor:end')}</g>`;
+    o += `<path d="M6 134H294" style="stroke:var(--line)"/>` + T(8, 148, ui.figTaxa);
+  }
+  return `<svg class="fig" viewBox="0 0 300 156" aria-hidden="true">${o}</svg>`;
 }
 
 function citeTip(lang, ui) {
@@ -139,6 +165,7 @@ function layout({ lang, title, desc, body, path, altPath, isHome, ui }) {
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Lora:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
+<script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('fx')}catch(e){}</script>
 <script>try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}</script>${redirect}
 <link rel="stylesheet" href="/style.css">${jsonld}
 </head>
@@ -160,6 +187,7 @@ ${body}
   <div class="links"><a href="#" data-u="${site.links.emailUser}" data-d="${site.links.emailDomain}" rel="noopener">${esc(ui.email)}</a><a href="${site.links.scholar}" rel="noopener">Google Scholar</a><a href="${site.links.linkedin}" rel="noopener">LinkedIn</a><a href="${site.links.github}" rel="noopener">GitHub</a></div></div>
   <div class="cp"><span>${esc(ui.rights)}</span><span>${esc(ui.location)}</span></div>
 </div></footer>
+<div id="dna" aria-hidden="true" data-top="${esc(site.name)}"><div class="nm"></div><svg></svg></div>
 <script src="/app.js" defer></script>
 </body></html>`;
 }
@@ -167,20 +195,20 @@ ${body}
 // ---------- pages ----------
 function home(lang, notes) {
   const ui = site.ui[lang], b = base(lang);
-  const work = site.work.map((w) => `<article class="card"><div class="tp">${esc(tr(w.meta, lang))}</div><h3>${esc(tr(w.title, lang))}</h3><p>${esc(tr(w.text, lang))}</p><div class="big">${w.big.map(([n, l]) => `<div><b>${esc(n)}</b>${esc(tr(l, lang))}</div>`).join('')}</div><div class="stack">${esc(w.stack)}</div></article>`).join('');
+  const work = site.work.map((w, i) => `<article class="card rv" style="--i:${i}"><div class="tp">${esc(tr(w.meta, lang))}</div><h3>${esc(tr(w.title, lang))}</h3><p>${esc(tr(w.text, lang))}</p>${w.fig ? figSvg(w.fig, ui) : ''}<div class="big">${w.big.map(([n, l]) => `<div><b>${esc(n)}</b>${esc(tr(l, lang))}</div>`).join('')}</div><div class="stack">${esc(w.stack)}</div></article>`).join('');
   const exp = site.experience.map((j) => `<div class="job${j.now ? ' now' : ''}"><div class="when">${esc(tr(j.when, lang))}</div><div><h4>${esc(tr(j.role, lang))}</h4><div class="org">${esc(tr(j.org, lang))}</div>${j.items.length ? `<ul>${j.items.map((it) => `<li>${esc(tr(it, lang))}</li>`).join('')}</ul>` : ''}</div></div>`).join('');
-  const edu = site.education.map((e) => `<div class="e"><div class="w">${esc(tr(e.when, lang))}</div><h4>${esc(tr(e.title, lang))}</h4><p>${esc(tr(e.org, lang))}</p>${tr(e.text, lang) ? `<p>${esc(tr(e.text, lang))}</p>` : ''}</div>`).join('');
+  const edu = site.education.map((e) => `<div class="e rv"><div class="w">${esc(tr(e.when, lang))}</div><h4>${esc(tr(e.title, lang))}</h4><p>${esc(tr(e.org, lang))}</p>${tr(e.text, lang) ? `<p>${esc(tr(e.text, lang))}</p>` : ''}</div>`).join('');
   const pubs = site.publications.map((p) => {
     const n = paperCites(p);
     const badge = n != null ? `<a class="c" href="${site.links.scholar}" rel="noopener">${esc(ui.citedBy)} ${n}</a>` : '';
-    return `<div class="pub"><div class="y">${p.year}${p.status ? ` · ${esc(tr(p.status, lang))}` : ''}</div><div class="t">${p.url ? `<a href="${esc(p.url)}" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</div><div class="j"><span>${esc(tr(p.venue, lang))}</span>${badge}</div></div>`;
+    return `<div class="pub rv"><div class="y">${p.year}${p.status ? ` · ${esc(tr(p.status, lang))}` : ''}</div><div class="t">${p.url ? `<a href="${esc(p.url)}" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</div><div class="j"><span>${esc(tr(p.venue, lang))}</span>${badge}</div></div>`;
   }).join('');
-  const talks = site.talks.map((t) => `<div class="talk"><div class="d">${esc(tr(t.when, lang))}</div><div><div class="t">${esc(t.title)}</div><div class="w">${esc(tr(t.where, lang))}</div></div></div>`).join('');
+  const talks = site.talks.map((t) => `<div class="talk rv"><div class="d">${esc(tr(t.when, lang))}</div><div><div class="t">${esc(t.title)}</div><div class="w">${esc(tr(t.where, lang))}</div></div></div>`).join('');
   const recent = (notes[lang] || []).slice(0, 3).map((n) => noteCard(n, lang, ui)).join('');
   const notesSec = recent ? `<section class="blk" id="notes"><div class="wrap"><div class="sh"><span class="no">04</span><h2>${esc(ui.sNotes)}</h2></div><div class="notes">${recent}</div><a class="all" href="${b}/notes/">${esc(ui.allNotes)}</a></div></section>` : '';
-  const groups = site.toolkit.map((g, i) => `<div class="tool"><h5>${esc(ui.toolGroups[i])}</h5><div class="chips">${g.map((c) => `<span class="chip">${esc(tr(c, lang))}</span>`).join('')}</div></div>`).join('');
+  const groups = site.toolkit.map((g, i) => `<div class="tool rv"><h5>${esc(ui.toolGroups[i])}</h5><div class="chips">${g.map((c) => `<span class="chip">${esc(tr(c, lang))}</span>`).join('')}</div></div>`).join('');
   const body = `
-<div class="wrap hero">
+<div class="wrap hero" id="hero">
   <div>
     <div class="who">${AVATAR(84)}<div class="kicker">${esc(ui.kicker)}</div></div>
     <h1>${ui.h1}</h1>
@@ -200,7 +228,7 @@ ${notesSec}
 
 function noteCard(n, lang, ui) {
   const b = base(lang);
-  return `<a class="note" href="${b}/notes/${n.slug}/"><div class="m">${esc(n.tags[0] || '')}${n.draft ? `<span class="draftb">${esc(ui.draft)}</span>` : ''}</div><h3>${esc(n.title)}</h3><p>${esc(n.summary || '')}</p><div class="r">${esc(n.date)}${n.minutes ? ` · ${esc(n.minutes)} ${esc(ui.minRead)}` : ''}</div></a>`;
+  return `<a class="note rv" href="${b}/notes/${n.slug}/"><div class="m">${esc(n.tags[0] || '')}${n.draft ? `<span class="draftb">${esc(ui.draft)}</span>` : ''}</div><h3>${esc(n.title)}</h3><p>${esc(n.summary || '')}</p><div class="r">${esc(n.date)}${n.minutes ? ` · ${esc(n.minutes)} ${esc(ui.minRead)}` : ''}</div></a>`;
 }
 
 function notesIndex(lang, notes) {
