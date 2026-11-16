@@ -182,3 +182,11 @@ footer .cp{font-size:12px;color:#8b8680;border-top:1px solid #34312e;padding-top
 @media (max-width:1100px){#dna{right:4px;width:30px}}
 @media (max-width:640px){#dna{width:22px;right:2px}#dna .nm{display:none}.wrap{padding:0 28px 0 20px}}
 @media print{#dna{display:none}}
+/* data-visualisation note figures */
+figure.dv{margin:1.8em 0 2em}
+.dvp{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.dvp1{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 6px 2px}
+.dvp1 svg{display:block;width:100%;height:auto;font-family:var(--sans)}
+.dvt{position:absolute;top:8px;right:10px;font:600 10px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:99px}
+.dvt.bad{background:var(--redsoft);color:var(--red)}.dvt.good{background:var(--tealsoft);color:var(--teal)}
+figure.dv figcaption{margin-top:10px;font-size:14px;line-height:1.55;color:var(--mut)}

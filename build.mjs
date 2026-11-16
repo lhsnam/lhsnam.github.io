@@ -1,6 +1,7 @@
 // Zero-dependency static site builder.  Usage: node build.mjs  ->  ./dist
 import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
+import { dvFigure } from './src/dvfigs.mjs';
 
 const ROOT = dirname(new URL(import.meta.url).pathname);
 const OUT = join(ROOT, 'dist');
@@ -25,7 +26,7 @@ function inline(s) {
   s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>');
   return s;
 }
-function markdown(md) {
+function markdown(md, lang = 'en') {
   const lines = md.replace(/\r/g, '').split('\n');
   const out = []; let i = 0;
   while (i < lines.length) {
@@ -35,6 +36,8 @@ function markdown(md) {
       while (i < lines.length && !/^```/.test(lines[i])) buf.push(lines[i++]);
       i++; out.push(`<pre><code>${esc(buf.join('\n'))}</code></pre>`); continue;
     }
+    const fg = l.match(/^\{\{fig:(\w+)\}\}\s*$/);
+    if (fg) { out.push(dvFigure(fg[1], lang)); i++; continue; }
     const h = l.match(/^(#{2,3})\s+(.*)$/);
     if (h) { out.push(`<h${h[1].length}>${inline(h[2])}</h${h[1].length}>`); i++; continue; }
     if (/^\s*[-*]\s+/.test(l)) {
@@ -54,7 +57,7 @@ function markdown(md) {
     }
     if (!l.trim()) { i++; continue; }
     const buf = [];
-    while (i < lines.length && lines[i].trim() && !/^(```|#{2,3}\s|\s*[-*]\s|\s*\d+\.\s|>)/.test(lines[i])) buf.push(lines[i++]);
+    while (i < lines.length && lines[i].trim() && !/^(```|\{\{fig:|#{2,3}\s|\s*[-*]\s|\s*\d+\.\s|>)/.test(lines[i])) buf.push(lines[i++]);
     out.push(`<p>${inline(buf.join(' '))}</p>`);
   }
   return out.join('\n');
@@ -73,7 +76,7 @@ function loadNotes() {
     const { meta, body } = parseNote(join(dir, f));
     if (meta.draft === 'true' && !SHOW_DRAFTS) continue;
     const [, slug, lang] = m;
-    (notes[lang] ||= []).push({ slug, lang, ...meta, tags: (meta.tags || '').split(',').map((t) => t.trim()).filter(Boolean), html: markdown(body), draft: meta.draft === 'true' });
+    (notes[lang] ||= []).push({ slug, lang, ...meta, tags: (meta.tags || '').split(',').map((t) => t.trim()).filter(Boolean), html: markdown(body, lang), draft: meta.draft === 'true' });
   }
   for (const l of LANGS) (notes[l] ||= []).sort((a, b) => (a.date < b.date ? 1 : -1));
   return notes;
