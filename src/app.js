@@ -61,7 +61,6 @@
     var doc = document.documentElement;
     var max = Math.max(1, doc.scrollHeight - innerHeight), p = clamp(scrollY / max);
 
-    if (hero && !reduce) hero.style.setProperty('--p', clamp(scrollY / (hero.offsetTop + hero.offsetHeight * 0.9)).toFixed(3));
 
     if (tl && fx) {
       var r = tl.getBoundingClientRect(), f = clamp((innerHeight * 0.62 - r.top) / r.height);

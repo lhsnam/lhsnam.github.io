@@ -38,7 +38,7 @@ In the repository: **Settings → Pages → Source: GitHub Actions**.
 Dependency-free (CSS + ~100 lines in `src/app.js`), all progressive: with JS off or `prefers-reduced-motion`, the page is static.
 
 - DNA scroll bar (`#dna`): over/under helix = reading progress, click/drag to scrub, hover shows the current section.
-- Hero reads panel: noise fades and reads drift as you leave the hero (`--p` on `#hero`).
+- Hero career tracks (`careerSvg` in `build.mjs`, data in `content/site.json` → `career`): roles, degrees, papers and talks on a time axis; draws in left to right once on load.
 - Work-card figures (`figSvg` in `build.mjs`, `fig` field in `content/site.json`) draw once when they enter the viewport.
 - Experience timeline fills with scroll (`--tlp`), dots light up as the line reaches them.
 - Other blocks (`.rv`) fade up once.

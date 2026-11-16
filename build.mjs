@@ -82,24 +82,25 @@ function loadNotes() {
 // ---------- fragments ----------
 const AVATAR = (size) => `<svg width="${size}" height="${size}" viewBox="0 0 84 84" role="img" aria-label="Cartoon avatar"><clipPath id="av${size}"><circle cx="42" cy="42" r="42"/></clipPath><g clip-path="url(#av${size})"><path d="M8 90c2-20 16-28 34-28s32 8 34 28z" fill="#F4F1EA"/><path d="M34 62l8 14 8-14z" fill="#8F1D2C"/><path d="M42 62v28" stroke="#d9d3c7" stroke-width="1.5"/><rect x="36" y="50" width="12" height="14" rx="4" fill="#E8B88F"/><ellipse cx="42" cy="37" rx="17" ry="19" fill="#F1C79F"/><path d="M24 34c0-14 8-20 19-20 12 0 18 7 17 20-3-7-8-10-17-10s-15 3-19 10z" fill="#1B1A1A"/><g fill="none" stroke="#1B1A1A" stroke-width="2"><circle cx="35" cy="38" r="5.5"/><circle cx="49" cy="38" r="5.5"/><path d="M40.5 38h3"/></g><circle cx="35" cy="38" r="1.8" fill="#1B1A1A"/><circle cx="49" cy="38" r="1.8" fill="#1B1A1A"/><path d="M36 48c3 3 9 3 12 0" stroke="#7a3b2e" stroke-width="2" fill="none" stroke-linecap="round"/></g></svg>`;
 
-function readsSvg(ui) {
-  let s = 7; const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
-  const W = 516, vx = W * 0.54; let o = '';
-  for (let i = 0; i <= 8; i++) { const x = i * W / 8; o += `<line x1="${x}" y1="14" x2="${x}" y2="20" stroke="#3a3d46"/><text x="${x + 3}" y="12" fill="#6d727e" font-size="9" font-family="monospace">${1200 + i * 40}</text>`; }
-  o += `<rect class="vb" x="${vx - 9}" y="24" width="18" height="214" fill="#8F1D2C"/>`;
-  const cols = ['#5b6270', '#4d5a6b', '#566170'];
-  for (let row = 0; row < 18; row++) {
-    let x = -r() * 80; const y = 28 + row * 11.5;
-    while (x < W) {
-      const len = 70 + r() * 90, x2 = Math.min(W, x + len), x0 = Math.max(0, x);
-      o += `<rect class="rd r${row % 2}" x="${x0.toFixed(1)}" y="${y}" width="${Math.max(1, x2 - x0 - 3).toFixed(1)}" height="7" rx="3.5" fill="${cols[row % 3]}"/>`;
-      if (r() < 0.55) { const nx = x + 10 + r() * (len - 20); if (Math.abs(nx - vx) > 14 && nx < W - 4) o += `<rect class="nz r${row % 2}" x="${nx.toFixed(1)}" y="${y}" width="4" height="7" fill="#d9a441"/>`; }
-      if (x < vx && x2 > vx && row % 3 !== 2) o += `<rect class="vr" x="${(vx - 2).toFixed(1)}" y="${y}" width="5" height="7" fill="#ff5a6e"/>`;
-      x = x2 + 4;
-    }
-  }
-  o += `<text x="${vx + 14}" y="246" fill="#ff8a98" font-size="10" font-family="monospace">${esc(ui.legendVariant)}</text><text class="nzl" x="12" y="246" fill="#d9a441" font-size="10" font-family="monospace">${esc(ui.legendNoise)}</text>`;
-  return `<svg viewBox="0 0 ${W} 252" role="img" aria-label="Illustration of sequencing reads with one true variant highlighted">${o}</svg>`;
+function careerSvg(ui) {
+  // Career as genome-browser style annotation tracks, drawn from content/site.json "career".
+  const c = site.career, d = new Date(), now = d.getUTCFullYear() + d.getUTCMonth() / 12, end = Math.floor(now) + 1;
+  const W = 516, L = 68, R = 8, x = (t) => L + (t - c.start) / (end - c.start) * (W - L - R);
+  const col = { m: '#5CC4BD', g: '#ff6b7e', n: '#aeb3bd' }, span = x(now) - L;
+  const dl = (t) => `--t:${((x(Math.min(t, now)) - L) / span).toFixed(3)}`;
+  const tx = (X, Y, t, fill, anchor = 'start') => `<text x="${X.toFixed(1)}" y="${Y}" font-size="11" fill="${fill}" text-anchor="${anchor}">${esc(t)}</text>`;
+  let o = '';
+  for (let y = c.start; y <= end; y++) o += `<line x1="${x(y).toFixed(1)}" y1="18" x2="${x(y).toFixed(1)}" y2="222" stroke="#262830"/>` + (y < end ? `<text x="${(x(y) + 3).toFixed(1)}" y="12" font-size="10" fill="#6d727e">${y < Math.floor(now) ? y : String(y).slice(2).padStart(3, "'")}</text>` : '');
+  o += `<g class="cn" style="--span:${span.toFixed(1)}"><line x1="${x(now).toFixed(1)}" y1="18" x2="${x(now).toFixed(1)}" y2="222" stroke="#4a4d57" stroke-dasharray="2 3"/><text x="${x(now).toFixed(1)}" y="12" font-size="10" fill="#cfd2d8" text-anchor="middle">${esc(ui.trackNow)}</text></g>`;
+  const rowsY = [44, 94, 140, 190];
+  ui.trackRows.forEach((r, i) => { o += `<text x="0" y="${rowsY[i] + 3}" font-size="9" fill="#6d727e" style="text-transform:uppercase;letter-spacing:.06em">${esc(r)}</text>`; });
+  c.roles.forEach((r) => { const x1 = x(r.from) + 1, x2 = x(r.to ?? now) - 1, open = r.to == null;
+    o += `<g class="ci" style="${dl(r.from)}"><title>${esc(r.title)}</title><rect class="cb" x="${x1.toFixed(1)}" y="38" width="${Math.max(3, x2 - x1).toFixed(1)}" height="12" rx="3" fill="${col[r.d]}"/>${open ? tx(W - 2, 66, r.label, col[r.d], 'end') : tx(x1, 66, r.label, col[r.d])}</g>`; });
+  c.degrees.forEach((g) => { const X = x(g.at); o += `<g class="ci" style="${dl(g.at)}"><title>${esc(g.title)}</title><path d="M${X.toFixed(1)} 88l6 6-6 6-6-6z" fill="none" stroke="${col.n}" stroke-width="1.5"/>${tx(X + 11, 97.5, g.label, col.n)}</g>`; });
+  c.papers.forEach((p, i) => { const X = x(p.at), up = i % 2 === 1, last = i === c.papers.length - 1;
+    o += `<g class="ci" style="${dl(p.at)}"><title>${esc(p.title)}</title><circle cx="${X.toFixed(1)}" cy="140" r="5.5" fill="${col[p.d]}"/>${tx(last ? W - 2 : X, up ? 126 : 160, p.label, col[p.d], last ? 'end' : 'middle')}</g>`; });
+  c.talks.forEach((t) => { const X = x(t.at); o += `<g class="ci" style="${dl(t.at)}"><title>${esc(t.title)}</title><path d="M${X.toFixed(1)} 184l6.5 11h-13z" fill="${col[t.d]}"/>${tx(X, 211, t.label, col[t.d], 'middle')}</g>`; });
+  return `<svg class="career" viewBox="0 0 ${W} 236" role="img" aria-label="${esc(ui.trackAria)}">${o}</svg>`;
 }
 
 
@@ -216,7 +217,7 @@ function home(lang, notes) {
     <div class="cta"><a class="btn p" href="#work">${esc(ui.ctaWork)}</a><a class="btn" href="/CV.pdf">${esc(ui.ctaCv)}</a><a class="btn" href="${site.links.scholar}" rel="noopener">${esc(ui.ctaScholar)}</a></div>
     <div class="tags">${ui.tags.map(([t, k]) => `<span class="tag${k === 't' ? ' t' : ''}">${esc(t)}</span>`).join('')}</div>
   </div>
-  <div class="track"><div class="hd mono"><div class="dots"><i></i><i></i><i></i></div><span>${esc(ui.trackTitle)}</span></div>${readsSvg(ui)}<div class="ft mono"><span>${ui.trackLeft}</span><span>${esc(ui.trackRight)}</span></div></div>
+  <div class="track"><div class="hd mono"><div class="dots"><i></i><i></i><i></i></div><span>${esc(ui.trackTitle)}</span></div>${careerSvg(ui)}<div class="ft mono"><span class="lg"><span><i class="m"></i>${esc(ui.trackDomains[0])}</span><span><i class="g"></i>${esc(ui.trackDomains[1])}</span></span><span>${site.career.papers.length} ${esc(ui.trackCount[0])} · ${site.career.talks.length} ${esc(ui.trackCount[1])}</span></div></div>
 </div>
 <section class="blk" id="work"><div class="wrap"><div class="sh"><span class="no">01</span><h2>${esc(ui.sWork)}</h2></div><div class="cards">${work}</div></div></section>
 <section class="blk" id="experience"><div class="wrap"><div class="sh"><span class="no">02</span><h2>${esc(ui.sExp)}</h2></div><div class="tl">${exp}</div><div class="sh" style="margin-top:56px"><h2 style="font-size:24px">${esc(ui.education)}</h2></div><div class="edu">${edu}</div></div></section>
