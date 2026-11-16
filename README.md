@@ -32,3 +32,13 @@ Per-paper counts are matched to `publications[].match` in `content/site.json`.
 
 GitHub Actions (`.github/workflows/deploy.yml`) builds and deploys to GitHub Pages.
 In the repository: **Settings → Pages → Source: GitHub Actions**.
+
+## Scroll effects
+
+Dependency-free (CSS + ~100 lines in `src/app.js`), all progressive: with JS off or `prefers-reduced-motion`, the page is static.
+
+- DNA scroll bar (`#dna`): over/under helix = reading progress, click/drag to scrub, hover shows the current section.
+- Hero reads panel: noise fades and reads drift as you leave the hero (`--p` on `#hero`).
+- Work-card figures (`figSvg` in `build.mjs`, `fig` field in `content/site.json`) draw once when they enter the viewport.
+- Experience timeline fills with scroll (`--tlp`), dots light up as the line reaches them.
+- Other blocks (`.rv`) fade up once.

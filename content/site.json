@@ -23,6 +23,7 @@
       "trackTitle": "chr · variant call view",
       "legendNoise": "■ sequencing noise",
       "legendVariant": "▲ true variant",
+      "figBefore": "before", "figAfter": "after", "figHalf": "half the time", "figNoise": "noise", "figVariant": "true variant", "figThreshold": "threshold", "figSample": "sample", "figTaxa": "taxa composition per sample", "dnaTop": "Back to top",
       "sWork": "Selected work",
       "sExp": "Experience",
       "sRes": "Research & talks",
@@ -70,6 +71,7 @@
       "trackTitle": "chr · gọi biến thể",
       "legendNoise": "■ nhiễu giải trình tự",
       "legendVariant": "▲ biến thể thật",
+      "figBefore": "trước", "figAfter": "sau", "figHalf": "một nửa thời gian", "figNoise": "nhiễu", "figVariant": "biến thể thật", "figThreshold": "ngưỡng", "figSample": "mẫu", "figTaxa": "thành phần vi sinh theo mẫu", "dnaTop": "Về đầu trang",
       "sWork": "Dự án nổi bật",
       "sExp": "Kinh nghiệm",
       "sRes": "Nghiên cứu & báo cáo",
@@ -107,6 +109,7 @@
   "work": [
     {
       "meta": { "en": "Gene Solutions · 2026", "vi": "Gene Solutions · 2026" },
+      "fig": "pipeline",
       "title": { "en": "KTrack: precision oncology pipeline", "vi": "KTrack: pipeline ung thư chính xác" },
       "text": { "en": "Optimised the variant-calling workflow behind a precision-oncology product used in cancer diagnosis.", "vi": "Tối ưu workflow gọi biến thể của một sản phẩm ung thư chính xác dùng trong chẩn đoán ung thư." },
       "big": [["−50%", { "en": "processing time", "vi": "thời gian xử lý" }]],
@@ -114,6 +117,7 @@
     },
     {
       "meta": { "en": "Gene Solutions · 2026", "vi": "Gene Solutions · 2026" },
+      "fig": "scatter",
       "title": { "en": "ML denoising for monogenic NIPT", "vi": "ML khử nhiễu cho NIPT đơn gen" },
       "text": { "en": "Machine learning separates true variants from non-UMI sequencing artefacts. Presented at AI x BIO, Cambridge.", "vi": "Machine learning phân biệt biến thể thật với nhiễu giải trình tự không UMI. Đã trình bày tại AI x BIO, Cambridge." },
       "big": [["99%", { "en": "precision", "vi": "độ chính xác" }], ["−50%", { "en": "turn-around", "vi": "thời gian trả KQ" }], ["−20%", { "en": "cost", "vi": "chi phí" }]],
@@ -121,6 +125,7 @@
     },
     {
       "meta": { "en": "Zymo Research · 2023–2025", "vi": "Zymo Research · 2023–2025" },
+      "fig": "bars",
       "title": { "en": "Gut Health & Orion Microbiome Portal", "vi": "Gut Health & Orion Microbiome Portal" },
       "text": { "en": "Taxa-profiling pipelines (aladdin-shotgun, io-gut-health) and predictive models for health status from microbiome data.", "vi": "Pipeline định danh taxa (aladdin-shotgun, io-gut-health) và mô hình dự đoán tình trạng sức khỏe từ dữ liệu microbiome." },
       "big": [["2", { "en": "pipelines", "vi": "pipeline" }], ["1", { "en": "data portal", "vi": "cổng dữ liệu" }]],
